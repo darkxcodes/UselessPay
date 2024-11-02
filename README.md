@@ -60,29 +60,34 @@ For Software:
 - Claude ,ChatGPT
 - Git
 
-### Project Documentation
-For Software:
+
 
 # Screenshots 
 
-Authentication 
+Authentication Page 
  - This shows the authentication page of the app.
  - https://github.com/darkxcodes/UselessPay/blob/main/Photos/authentication.jpeg
+
  Main Page
   - This is the Main page of the app.
   - https://github.com/darkxcodes/UselessPay/blob/main/Photos/main%20page.jpeg
- Payment Page
+
+Payment Page
   - This is the payment page of the app.
   - https://github.com/darkxcodes/UselessPay/blob/main/Photos/payment%20page.jpeg
- Payment Status page
+
+    
+Payment Status page
   - This is the payment status page of the app
   - https://github.com/darkxcodes/UselessPay/blob/main/Photos/payment_status.jpeg
- Balance Page
+
+    
+Balance Page
   - This is balance details page of the app.
   - https://github.com/darkxcodes/UselessPay/blob/main/Photos/balance.jpeg
 
 
----
+
 Made with ❤️ at TinkerHub Useless Projects 
 
 ![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
