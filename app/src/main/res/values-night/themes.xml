@@ -2,17 +2,28 @@
     <!-- Base application theme. -->
     <!-- themes.xml -->
     <style name="Theme.UselessPay" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">#007FFF</item>
-        <item name="colorPrimaryVariant">#007FFF</item>
+        <!-- Primary brand color - Rich emerald green -->
+        <item name="colorPrimary">#00875A</item>
+        <item name="colorPrimaryVariant">#006C46</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">#007FFF</item>
-        <item name="colorSecondaryVariant">#007FFF</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
+
+        <!-- Secondary brand color - Slightly lighter green for accents -->
+        <item name="colorSecondary">#2D9D78</item>
+        <item name="colorSecondaryVariant">#1A8962</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- Status bar color -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Background color. -->
-        <item name="android:windowBackground">@android:color/white</item>
+
+        <!-- Background color -->
+        <item name="android:windowBackground">@android:color/black</item>
+
+        <!-- Additional colors for a premium feel -->
+        <item name="android:textColorPrimary">#1A1A1A</item>
+        <item name="android:textColorSecondary">#4A4A4A</item>
+
+        <!-- Button styling -->
+        <item name="buttonStyle">@style/Widget.MaterialComponents.Button</item>
+        <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button</item>
     </style>
 </resources>

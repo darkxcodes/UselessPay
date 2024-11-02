@@ -11,9 +11,18 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.widget.ProgressBar
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.biometric.BiometricPrompt
+import androidx.core.content.ContextCompat
+import java.util.concurrent.Executor
 
 class PaymentActivity : AppCompatActivity() {
     private var amount: Int = 0
+    private lateinit var executor: Executor
+    private lateinit var biometricPrompt: BiometricPrompt
+    private lateinit var promptInfo: BiometricPrompt.PromptInfo
+    private lateinit var loadingProgressBar: ProgressBar
 
     val phrases = arrayOf(
         "\"Panam Potte, Power Varatte.\" ",
@@ -25,11 +34,14 @@ class PaymentActivity : AppCompatActivity() {
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment)
 
+        setupBiometricAuth()
+
         val payButton = findViewById<Button>(R.id.payButton)
-        val loadingProgressBar = findViewById<ProgressBar>(R.id.loadingProgressBar)
+        loadingProgressBar = findViewById(R.id.loadingProgressBar)
 
         // Get the scanned QR code data from the intent
         val qrData = intent.getStringExtra("upi_id") ?: ""
@@ -55,28 +67,77 @@ class PaymentActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.noteText).text = randomPhrase
 
         payButton.setOnClickListener {
-            // Show loading animation
-            loadingProgressBar.visibility = View.VISIBLE
-
-            // Simulate a transaction delay (e.g., 2 seconds)
-            Handler(Looper.getMainLooper()).postDelayed({
-                // Deduct the amount from balance
-                val balanceManager = BalanceManager.getInstance(this)
-                balanceManager.deductAmount(amount)
-
-                // Proceed to the SuccessActivity
-                val intent = Intent(this, SuccessActivity::class.java)
-                intent.putExtra("amount", amount)
-                intent.putExtra("recipient", name)
-                startActivity(intent)
-
-                // Hide loading animation
-                loadingProgressBar.visibility = View.GONE
-
-                // Optionally finish this activity if needed
-                finish()
-            }, 2000) // Delay in milliseconds (2000ms = 2 seconds)
+            // Show biometric prompt when pay button is clicked
+            showBiometricPrompt()
         }
+    }
+
+    private fun setupBiometricAuth() {
+        executor = ContextCompat.getMainExecutor(this)
+
+        biometricPrompt = BiometricPrompt(this, executor,
+            object : BiometricPrompt.AuthenticationCallback() {
+                override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+                    super.onAuthenticationSucceeded(result)
+                    // Proceed with payment after successful authentication
+                    processPayment()
+                }
+
+                override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
+                    super.onAuthenticationError(errorCode, errString)
+                    if (errorCode != BiometricPrompt.ERROR_NEGATIVE_BUTTON &&
+                        errorCode != BiometricPrompt.ERROR_USER_CANCELED) {
+                        Toast.makeText(
+                            this@PaymentActivity,
+                            "Authentication error: $errString",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+
+                override fun onAuthenticationFailed() {
+                    super.onAuthenticationFailed()
+                    Toast.makeText(
+                        this@PaymentActivity,
+                        "Authentication failed",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            })
+
+        promptInfo = BiometricPrompt.PromptInfo.Builder()
+            .setTitle("Confirm Payment")
+            .setSubtitle("Please authenticate to complete the payment.")
+            .setNegativeButtonText("Cancel")
+            .build()
+    }
+
+    private fun showBiometricPrompt() {
+        biometricPrompt.authenticate(promptInfo)
+    }
+
+    private fun processPayment() {
+        // Show loading animation
+        loadingProgressBar.visibility = View.VISIBLE
+
+        // Simulate a transaction delay (e.g., 2 seconds)
+        Handler(Looper.getMainLooper()).postDelayed({
+            // Deduct the amount from balance
+            val balanceManager = BalanceManager.getInstance(this)
+            balanceManager.deductAmount(amount)
+
+            // Proceed to the SuccessActivity
+            val intent = Intent(this, SuccessActivity::class.java)
+            intent.putExtra("amount", amount)
+            intent.putExtra("recipient", findViewById<TextView>(R.id.recipientName).text.toString())
+            startActivity(intent)
+
+            // Hide loading animation
+            loadingProgressBar.visibility = View.GONE
+
+            // Finish this activity
+            finish()
+        }, 2000)
     }
 
     // Helper function to extract parameters from the UPI URL
