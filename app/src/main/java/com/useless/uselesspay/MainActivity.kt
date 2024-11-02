@@ -13,6 +13,10 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.biometric.BiometricManager
+import androidx.biometric.BiometricPrompt
+import androidx.core.view.isVisible
+import android.view.View
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
 import java.util.concurrent.ExecutorService
@@ -20,14 +24,33 @@ import java.util.concurrent.Executors
 
 class MainActivity : AppCompatActivity() {
     private lateinit var cameraExecutor: ExecutorService
+    private lateinit var biometricPrompt: BiometricPrompt
+    private lateinit var promptInfo: BiometricPrompt.PromptInfo
     private var preview: Preview? = null
     private var imageAnalyzer: ImageAnalysis? = null
     private var camera: Camera? = null
     private lateinit var cameraProvider: ProcessCameraProvider
 
+    // View references
+    private lateinit var viewFinder: PreviewView
+    private lateinit var sendMoneyBtn: Button
+    private lateinit var checkBalanceBtn: Button
+    private lateinit var contentLayout: View
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Initialize views
+        viewFinder = findViewById(R.id.viewFinder)
+        sendMoneyBtn = findViewById(R.id.sendMoneyBtn)
+        checkBalanceBtn = findViewById(R.id.checkBalanceBtn)
+        contentLayout = findViewById(R.id.contentLayout) // Add this layout to wrap all content
+
+        // Hide content initially
+        contentLayout.isVisible = false
+
+        setupBiometricAuthentication()
 
         // Request camera permissions
         if (allPermissionsGranted()) {
@@ -40,21 +63,79 @@ class MainActivity : AppCompatActivity() {
 
         cameraExecutor = Executors.newSingleThreadExecutor()
 
-        findViewById<Button>(R.id.sendMoneyBtn).setOnClickListener {
+        sendMoneyBtn.setOnClickListener {
             val intent = Intent(this, ManualPaymentActivity::class.java)
             startActivity(intent)
         }
 
-        findViewById<Button>(R.id.checkBalanceBtn).setOnClickListener {
+        checkBalanceBtn.setOnClickListener {
             val intent = Intent(this, BalanceActivity::class.java)
             startActivity(intent)
         }
+
+        // Start biometric authentication
+        if (isBiometricAvailable()) {
+            showBiometricPrompt()
+        } else {
+            // If biometric auth is not available, show content directly
+            contentLayout.isVisible = true
+        }
+    }
+
+    private fun setupBiometricAuthentication() {
+        val executor = ContextCompat.getMainExecutor(this)
+
+        biometricPrompt = BiometricPrompt(this, executor,
+            object : BiometricPrompt.AuthenticationCallback() {
+                override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+                    super.onAuthenticationSucceeded(result)
+                    // Show content after successful authentication
+                    contentLayout.isVisible = true
+                }
+
+                override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
+                    super.onAuthenticationError(errorCode, errString)
+                    if (errorCode == BiometricPrompt.ERROR_NEGATIVE_BUTTON ||
+                        errorCode == BiometricPrompt.ERROR_USER_CANCELED) {
+                        // User canceled, close the app
+                        finish()
+                    } else {
+                        Toast.makeText(this@MainActivity,
+                            "Authentication error: $errString", Toast.LENGTH_SHORT).show()
+                        finish()
+                    }
+                }
+
+                override fun onAuthenticationFailed() {
+                    super.onAuthenticationFailed()
+                    Toast.makeText(this@MainActivity,
+                        "Authentication failed", Toast.LENGTH_SHORT).show()
+                }
+            })
+
+        promptInfo = BiometricPrompt.PromptInfo.Builder()
+            .setTitle("Authenticate to Use UselessPay")
+            .setSubtitle("Log in using your biometric credential")
+            .setNegativeButtonText("Cancel")
+            .build()
+    }
+
+    private fun isBiometricAvailable(): Boolean {
+        val biometricManager = BiometricManager.from(this)
+        return when (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_WEAK)) {
+            BiometricManager.BIOMETRIC_SUCCESS -> true
+            else -> false
+        }
+    }
+
+    private fun showBiometricPrompt() {
+        biometricPrompt.authenticate(promptInfo)
     }
 
     override fun onResume() {
         super.onResume()
-        // Restart the camera when the activity resumes
-        if (allPermissionsGranted()) {
+        // Only restart camera if already authenticated (content is visible)
+        if (contentLayout.isVisible && allPermissionsGranted()) {
             startCamera()
         }
     }

@@ -75,6 +75,7 @@
         android:text="Powered by Useless Bank"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:alpha="0.5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
