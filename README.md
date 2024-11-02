@@ -30,6 +30,9 @@ The Useless Pay App is an innovative and playful mobile application designed to 
 3. **Balance Checking Option:**
    - Users can quickly check their current balance within the app, providing a snapshot of their financial status.
    - Different money quotes are added to enhance the experience, adding humor and inspiration to each transaction and balance check.
+ 4. **FingerPrint Authentication :**
+    - The app includes a fingerprint authentication option to add an extra layer of security to the user experience, ensuring only authorized access to transactions    and balance details.
+
 
 **User Experience:**
       Designed with a clean and engaging interface, Useless Pay makes navigation between options simple and intuitive. The QR scan feature is optimized for speed,           minimizing the time needed for transactions. The surprise element in the payment option encourages users to interact with the app frequently, turning routine         transactions into a fun and memorable experience.
@@ -61,8 +64,6 @@ For Software:
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-Add caption explaining what this shows
 
 ![Screenshot2](Add screenshot 2 here with proper name)
 Add caption explaining what this shows
