@@ -60,8 +60,7 @@ For Software:
 - Claude ,ChatGPT
 - Git
 
-### Project Documentation
-For Software:
+
 
 # Screenshots 
 
