@@ -63,43 +63,24 @@ For Software:
 ### Project Documentation
 For Software:
 
-# Screenshots (Add at least 3)
+# Screenshots 
 
-![Screenshot2](Add screenshot 2 here with proper name)
-Add caption explaining what this shows
+Authentication 
+ - This shows the authentication page of the app.
+ - https://github.com/darkxcodes/UselessPay/blob/main/Photos/authentication.jpeg
+ Main Page
+  - This is the Main page of the app.
+  - https://github.com/darkxcodes/UselessPay/blob/main/Photos/main%20page.jpeg
+ Payment Page
+  - This is the payment page of the app.
+  - https://github.com/darkxcodes/UselessPay/blob/main/Photos/payment%20page.jpeg
+ Payment Status page
+  - This is the payment status page of the app
+  - https://github.com/darkxcodes/UselessPay/blob/main/Photos/payment_status.jpeg
+ Balance Page
+  - This is balance details page of the app.
+  - https://github.com/darkxcodes/UselessPay/blob/main/Photos/balance.jpeg
 
-![Screenshot3](Add screenshot 3 here with proper name)
-Add caption explaining what this shows
-
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-Add caption explaining your workflow
-
-For Hardware:
-
-
-# Build Photos
-![Components](Add photo of your components here)
-List out all components shown
-
-![Build](Add photos of build process here)
-Explain the build steps
-
-![Final](Add photo of final product here)
-Explain the final build
-
-### Project Demo
-# Video
-[Add your demo video link here]
-Explain what the video demonstrates
-
-# Additional Demos
-[Add any extra demo materials/links]
-
-## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
