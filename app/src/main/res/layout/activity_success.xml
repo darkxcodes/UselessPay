@@ -2,9 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="16dp"
     android:gravity="center">
+    <!-- Spacer to push button to bottom -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <ImageView
         android:layout_width="64dp"
@@ -25,7 +31,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:text="receiptnt text"/>
 
     <TextView
         android:id="@+id/amountText"
@@ -33,7 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:textSize="36sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:text="amount"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,19 +50,34 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/payAgainButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="8dp"
-            android:text="Pay Again"/>
-
-        <Button
             android:id="@+id/doneButton"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            android:text="Done"/>
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:text="DONE"/>
+
+
     </LinearLayout>
+    <!-- Spacer to push button to bottom -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+
+
+    <TextView
+        android:id="@+id/balTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Powered by Useless Bank"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/balanceLabel"
+        app:layout_constraintVertical_bias="1.0" />
 </LinearLayout>

@@ -38,7 +38,11 @@
         android:name=".SuccessActivity"
         android:exported="false" />
 
-    <activity android:name=".BalanceActivity" />
+    <activity
+        android:name=".BalanceActivity" />
+
+    <activity
+        android:name=".ManualPaymentActivity" />
 
 
 

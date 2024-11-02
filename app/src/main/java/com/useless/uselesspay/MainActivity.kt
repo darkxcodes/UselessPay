@@ -41,14 +41,14 @@ class MainActivity : AppCompatActivity() {
         cameraExecutor = Executors.newSingleThreadExecutor()
 
         findViewById<Button>(R.id.sendMoneyBtn).setOnClickListener {
-            // The camera preview will already be running
+            val intent = Intent(this, ManualPaymentActivity::class.java)
+            startActivity(intent)
         }
 
         findViewById<Button>(R.id.checkBalanceBtn).setOnClickListener {
             val intent = Intent(this, BalanceActivity::class.java)
             startActivity(intent)
         }
-
     }
 
     override fun onResume() {
@@ -57,6 +57,13 @@ class MainActivity : AppCompatActivity() {
         if (allPermissionsGranted()) {
             startCamera()
         }
+    }
+
+    private fun isValidUpiQrCode(qrCode: String): Boolean {
+        // Check if the QR code starts with upi:// and contains required parameters
+        return qrCode.startsWith("upi://") &&
+                qrCode.contains("pa=") && // payee address
+                qrCode.contains("pn=")    // payee name
     }
 
     private fun startCamera() {
@@ -72,13 +79,26 @@ class MainActivity : AppCompatActivity() {
                 .build()
                 .also {
                     it.setAnalyzer(cameraExecutor, QRCodeAnalyzer { qrCode ->
-                        // QR Code detected, stop the camera
-                        stopCamera()
+                        if (isValidUpiQrCode(qrCode)) {
+                            // Valid UPI QR code detected, stop the camera
+                            stopCamera()
 
-                        // Navigate to PaymentActivity with the detected QR code
-                        val intent = Intent(this, PaymentActivity::class.java)
-                        intent.putExtra("upi_id", qrCode)
-                        startActivity(intent)
+                            // Navigate to PaymentActivity with the detected QR code
+                            val intent = Intent(this, PaymentActivity::class.java)
+                            intent.putExtra("upi_id", qrCode)
+                            startActivity(intent)
+                        } else {
+                            // Run on UI thread to show toast
+                            runOnUiThread {
+                                Toast.makeText(
+                                    this,
+                                    "Invalid UPI QR code! Please scan a valid UPI QR code.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                            // Restart camera to continue scanning
+                            startCamera()
+                        }
                     })
                 }
 

@@ -1,0 +1,5 @@
+<!-- res/drawable/rounded_bottom_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#F0F3FA" /> <!-- Light background color -->
+    <corners android:topLeftRadius="32dp" android:topRightRadius="32dp" />
+</shape>
