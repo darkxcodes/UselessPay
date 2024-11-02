@@ -85,6 +85,11 @@ Balance Page
 - [View Balance Page](https://github.com/darkxcodes/UselessPay/blob/main/Photos/balance.jpeg)  
 
 
+### Bugs Founded:
+- Currently app only supports smartphones with side or back fingerprint scanners.
+- Users are required to authenticate every time they access the landing page.
+
+
 ---
 Made with ❤️ at TinkerHub Useless Projects 
 
