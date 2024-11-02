@@ -30,6 +30,9 @@ The Useless Pay App is an innovative and playful mobile application designed to 
 3. **Balance Checking Option:**
    - Users can quickly check their current balance within the app, providing a snapshot of their financial status.
    - Different money quotes are added to enhance the experience, adding humor and inspiration to each transaction and balance check.
+ 4. **FingerPrint Authentication :**
+    - The app includes a fingerprint authentication option to add an extra layer of security to the user experience, ensuring only authorized access to transactions    and balance details.
+
 
 **User Experience:**
       Designed with a clean and engaging interface, Useless Pay makes navigation between options simple and intuitive. The QR scan feature is optimized for speed,           minimizing the time needed for transactions. The surprise element in the payment option encourages users to interact with the app frequently, turning routine         transactions into a fun and memorable experience.
@@ -57,50 +60,34 @@ For Software:
 - Claude ,ChatGPT
 - Git
 
-### Project Documentation
-For Software:
-
-# Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-Add caption explaining what this shows
-
-![Screenshot2](Add screenshot 2 here with proper name)
-Add caption explaining what this shows
-
-![Screenshot3](Add screenshot 3 here with proper name)
-Add caption explaining what this shows
-
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-Add caption explaining your workflow
-
-For Hardware:
 
 
-# Build Photos
-![Components](Add photo of your components here)
-List out all components shown
+# Screenshots 
 
-![Build](Add photos of build process here)
-Explain the build steps
+Authentication Page 
+ - This shows the authentication page of the app.
+ - https://github.com/darkxcodes/UselessPay/blob/main/Photos/authentication.jpeg
 
-![Final](Add photo of final product here)
-Explain the final build
+ Main Page
+  - This is the Main page of the app.
+  - https://github.com/darkxcodes/UselessPay/blob/main/Photos/main%20page.jpeg
 
-### Project Demo
-# Video
-[Add your demo video link here]
-Explain what the video demonstrates
+Payment Page
+  - This is the payment page of the app.
+  - https://github.com/darkxcodes/UselessPay/blob/main/Photos/payment%20page.jpeg
 
-# Additional Demos
-[Add any extra demo materials/links]
+    
+Payment Status page
+  - This is the payment status page of the app
+  - https://github.com/darkxcodes/UselessPay/blob/main/Photos/payment_status.jpeg
 
-## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+    
+Balance Page
+  - This is balance details page of the app.
+  - https://github.com/darkxcodes/UselessPay/blob/main/Photos/balance.jpeg
 
----
+
+
 Made with ❤️ at TinkerHub Useless Projects 
 
 ![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
