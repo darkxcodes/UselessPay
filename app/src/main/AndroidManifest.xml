@@ -38,6 +38,10 @@
         android:name=".SuccessActivity"
         android:exported="false" />
 
+    <activity android:name=".BalanceActivity" />
+
+
+
 
 
 

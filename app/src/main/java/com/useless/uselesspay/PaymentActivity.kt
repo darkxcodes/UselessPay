@@ -30,12 +30,18 @@ class PaymentActivity : AppCompatActivity() {
         randomAmount = (1..100000).random()
         findViewById<TextView>(R.id.amountTextView).text = "₹$randomAmount"
 
+
         findViewById<Button>(R.id.payButton).setOnClickListener {
+            // Deduct the amount from balance
+            val balanceManager = BalanceManager.getInstance(this)
+            balanceManager.deductAmount(randomAmount)
+
             val intent = Intent(this, SuccessActivity::class.java)
             intent.putExtra("amount", randomAmount)
             intent.putExtra("recipient", name)
             startActivity(intent)
         }
+
     }
 
     // Helper function to extract parameters from the UPI URL

@@ -11,13 +11,15 @@
         android:layout_height="200dp"
         android:layout_gravity="center"/>
 
-<!--    <View-->
-<!--        android:id="@+id/qrScanArea"-->
-<!--        android:layout_width="200dp"-->
-<!--        android:layout_height="200dp"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:layout_marginTop="32dp"-->
-<!--        android:background="@drawable/scan_area_background"/>-->
+    <!-- Uncomment this block if you intend to use the QR scan area
+    <View
+        android:id="@+id/qrScanArea"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/scan_area_background"/>
+    -->
 
     <TextView
         android:layout_width="wrap_content"
@@ -43,11 +45,9 @@
             android:text="Send Money"/>
 
         <Button
-            android:id="@+id/checkBalBtn"
-            android:layout_width="0dp"
+            android:id="@+id/checkBalanceBtn"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            android:text="Check Bal"/>
-    </LinearLayout>
+            android:text="Check Balance" />
+    </LinearLayout> <!-- This closing tag was missing -->
 </LinearLayout>

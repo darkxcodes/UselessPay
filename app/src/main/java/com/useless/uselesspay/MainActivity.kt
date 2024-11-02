@@ -43,6 +43,12 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.sendMoneyBtn).setOnClickListener {
             // The camera preview will already be running
         }
+
+        findViewById<Button>(R.id.checkBalanceBtn).setOnClickListener {
+            val intent = Intent(this, BalanceActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     override fun onResume() {
