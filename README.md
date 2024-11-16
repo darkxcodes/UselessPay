@@ -1,4 +1,14 @@
-<img width="1280" alt="readme-banner" src="https://github.com/user-attachments/assets/35332e92-44cb-425b-9dff-27bcf1023c6c">
+# The Useless Pay App Demo :  
+
+<video src="https://github.com/user-attachments/assets/fc9eb14a-609e-45c3-926f-abb5ebcf48be" controls autoplay width="0"></video>
+
+# The Useless Pay Apk File :  
+- [Download the App now 😉!!!](https://drive.google.com/file/d/1kwlhwjXQQq2Yrka7vRVP03SvihOGaXLB/view?usp=sharing) 
+-----------------------------------------
+
+<img width="1280" alt="readme-banner" src="https://github.com/user-attachments/assets/61cf1b4b-c42b-4747-b43c-5a5aa0f41d62">
+
+
 
 # UselessPay 💰 💲💰
 
@@ -11,37 +21,31 @@
 - Team Lead: Muhammed Anees - [GEC Palakkad]
 - Member 2: Sinaj P S - [GEC Palakkad]
 
-### Project Description: 
-### Project Description: Useless Pay App
-
-**Overview:**
-The Useless Pay App is an innovative and playful mobile application designed to transform the way users engage with digital payments. With a focus on fun and randomness, the app features a main QR scan option, a payment option, and a balance checking option, all while introducing a lighthearted approach to transactions.
-
-**Key Features:**
-
-1. **Main QR Scan Option:**
-   - Users can effortlessly scan QR codes to initiate payments, whether to merchants, friends, or family. This feature ensures a quick and convenient way to handle everyday transactions.
-   - The option includes a straightforward interface that allows users to scan QR codes directly using their device's camera.
-
-2. **Payment Option:**
-   - This option enables users to send money easily by entering a UPI ID, with a validator to ensure the correct format of the UPI ID.
-   - In a quirky twist, Useless Pay allows users to send a random amount of money to the chosen UPI ID, making each transaction an unexpected experience.
-
-3. **Balance Checking Option:**
-   - Users can quickly check their current balance within the app, providing a snapshot of their financial status.
-   - Different money quotes are added to enhance the experience, adding humor and inspiration to each transaction and balance check.
- 4. **FingerPrint Authentication :**
-    - The app includes a fingerprint authentication option to add an extra layer of security to the user experience, ensuring only authorized access to transactions    and balance details.
+### Project Description:
 
 
-**User Experience:**
-      Designed with a clean and engaging interface, Useless Pay makes navigation between options simple and intuitive. The QR scan feature is optimized for speed,           minimizing the time needed for transactions. The surprise element in the payment option encourages users to interact with the app frequently, turning routine         transactions into a fun and memorable experience.
-    
-**Conclusion:**
-      Useless Pay embraces the delightful absurdity of digital payments by emphasizing their randomness and unpredictability. While it may not serve practical               financial needs, the app provides a whimsical take on money management, inviting users to engage with their finances in a lighthearted way. It’s a fun                 reminder that sometimes, the best experiences are the ones that don't take themselves too seriously.
+# The Useless Pay App  
 
+**The Useless Pay App** is a lighthearted, innovative mobile application that redefines digital payments by adding a touch of randomness and humor. Designed for those who love to have fun with their finances, the app offers a refreshing and quirky take on traditional transactions.  
 
-      
+## Features  
+
+- **QR Code Scanning**: Quickly scan and transact with ease.  
+- **Randomized Payments**: Perfect for the wealthy overwhelmed by their fortunes—send random amounts of cash with every transaction.  
+- **Balance Checking**: Keep tabs on your finances, even as you lighten your wallet.  
+- **FingerPrint Authentication**:Ensures secure and authorized access to transactions and balance details.
+
+## Why Use This App?  
+
+This app is not just about payments; it’s about creating a fun and unique experience. Every transaction comes with a surprise—a joke to brighten your day and keep the laughs coming.  
+
+Whether you’re a millionaire looking to share the wealth or someone who wants to make payments more amusing, **The Useless Pay App** ensures every transaction is a story worth sharing.  
+
+---  
+
+Ready to turn transactions into entertainment? Let’s make payments fun! 🚀  
+
+----
 
 ### The Problem (that doesn't exist)
 Having money is a huge problem that causes serious stress.
@@ -86,7 +90,7 @@ Balance Page
 
 
 ### Bugs Founded:
-- Currently app only supports smartphones with side or back fingerprint scanners.
+- Currently app only supports smartphones fingerprint scanners.
 - Users are required to authenticate every time they access the landing page.
 
 
